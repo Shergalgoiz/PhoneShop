@@ -14,7 +14,12 @@ class CreateBillsTable extends Migration
     public function up()
     {
         Schema::create('bills', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement()->unsigned();
+            // $table->integer('id_customer')->length(11); khóa ngoại sang bảng customers
+            $table->date('date_order');
+            $table->double('total');
+            $table->string('payment', 200);
+            $table->string('note', 200);
             $table->timestamps();
         });
     }

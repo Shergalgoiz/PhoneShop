@@ -14,7 +14,11 @@ class CreateBillDetailsTable extends Migration
     public function up()
     {
         Schema::create('bill_details', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement()->unsigned();
+            // $table->integer('id_bill'); khóa ngoại của bills
+            // $table->integer('id_product'); khóa ngoại của prodcut
+            $table->integer('quantity');
+            $table->double('unit_price');
             $table->timestamps();
         });
     }
